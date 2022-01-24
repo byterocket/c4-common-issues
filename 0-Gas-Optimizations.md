@@ -205,15 +205,17 @@ uint256 b = a >> 1;
 
 ### Description
 
-While `external` functions can read directly from calldata, for `public`
-functions Solidity copies the arguments to memory.
+⚡️ Only valid for solidity versions `<0.6.9`! ⚡️
 
-Furthermore, as `public` grants more access rights to a function than
-`external`, consider using `external` as default and only use `public` if there
-are explicit reasons.
+The restriction that `public` functions can not take `calldata` arguments was
+lifted in version `0.6.9`.
+
+For solidity versions `<0.6.9`, `public` functions had to copy the arguments
+to memory.
 
 ### Background Information
 
+- [StackOverflow answer re `solc >=0.6.9`](https://ethereum.stackexchange.com/questions/107578/does-using-external-over-public-in-a-library-reduce-any-gas-costs/107939#107939)
 - [Gustavo (Gus) Guimaraes post](https://gus-tavo-guim.medium.com/public-vs-external-functions-in-solidity-b46bcf0ba3ac)
 - [StackOverflow answer](https://ethereum.stackexchange.com/questions/19380/external-vs-public-best-practices?answertab=active#tab-top)
 
