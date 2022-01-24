@@ -1,4 +1,4 @@
-# Common Issues in Code4Rena contests
+<h1 align=center><code>c4-common-issues</code></h1>
 
 This repository aims to provide a list of issues found regularly in [Code4Rena](https://code4rena.com/)
 contests.
