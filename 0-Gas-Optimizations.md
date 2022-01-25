@@ -138,7 +138,7 @@ bytes32 public immutable GOVERNOR_ROLE = keccak256("GOVERNOR_ROLE");
 Shortening revert strings to fit in 32 bytes will decrease gas costs for
 deployment and gas costs when the revert condition has been met.
 
-If the contract(s) in scope allow using Solidity `>= 0.8.4`, consider using
+If the contract(s) in scope allow using Solidity `>=0.8.4`, consider using
 [Custom Errors](https://blog.soliditylang.org/2021/04/21/custom-errors/) as
 they are more gas efficient while allowing developers to describe the error
 in detail using [NatSpec](https://docs.soliditylang.org/en/latest/natspec-format.html).
@@ -174,11 +174,12 @@ if (!condition) {
 - [Uniswap V3 Error Code](https://docs.uniswap.org/protocol/reference/error-codes)
 
 
-## G008 - Shift Right instead of Dividing by 2
+## G008 - Use Shift Right/Left instead of Division/Multiplication if possible
 
 ### Description
 
-A division by 2 can be calculated by shifting one to the right.
+A division/multiplication by any number `x` being a power of 2 can be
+calculated by shifting `log2(x)` to the right/left.
 
 While the `DIV` opcode uses 5 gas, the `SHR` opcode only uses 3 gas.
 Furthermore, Solidity's division operation also includes a division-by-0
@@ -189,11 +190,15 @@ prevention which is bypassed using shifting.
 🤦 Bad:
 ```solidity
 uint256 b = a / 2;
+uint256 c = a / 4;
+uint256 d = a * 8;
 ```
 
 🚀 Good:
 ```solidity
 uint256 b = a >> 1;
+uint256 c = a >> 2;
+uint256 d = a << 3;
 ```
 
 ### Background Information
@@ -205,7 +210,7 @@ uint256 b = a >> 1;
 
 ### Description
 
-⚡️ Only valid for solidity versions `<0.6.9`! ⚡️
+⚡️ Only valid for solidity versions `<0.6.9` ⚡️
 
 The restriction that `public` functions can not take `calldata` arguments was
 lifted in version `0.6.9`.
@@ -223,6 +228,8 @@ to memory.
 ## G010 - Make Function `payable`
 
 ### Description
+
+⚡️ Community sentiment suggests to not accept this optimization due to security risks ⚡️
 
 Functions marked as `paybale` are slightly cheaper than non-`payable` ones,
 because the Solidity compiler inserts a check into non-`payable` functions
