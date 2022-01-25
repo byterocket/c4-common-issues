@@ -155,3 +155,32 @@ function acceptOwnership() external {
     pendingOwner = address(0);
 }
 ```
+
+
+## L005 - Do not use Deprecated Library Functions
+
+### Description
+
+The usage of deprecated library functions should be discouraged.
+
+This issue is mostly related to OpenZeppelin libraries.
+
+### Example
+
+🤦 Bad:
+```solidity
+use SafeERC20 for IERC20;
+
+// ...
+
+IERC20(token).safeApprove(spender, value);
+```
+
+🚀 Good:
+```solidity
+use SafeERC20 for IERC20;
+
+// ...
+
+IERC20(token).safeIncreaseAllowance(spender, value);
+```

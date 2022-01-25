@@ -50,6 +50,7 @@ their workload.
 | [L002](./2-Low-Risk.md#l002---feeontransfer-tokens-not-supported) | FeeOnTransfer Tokens not Supported |
 | [L003](./2-Low-Risk.md#l003---unspecific-compiler-version-pragma) | Unspecific Compiler Version Pragma |
 | [L004](./2-Low-Risk.md#l004---use-two-step-transfer-pattern-for-access-controls) | Use Two-Step Transfer Pattern for Access Controls |
+| [L005](./2-Low-Risk.md#l005---do-not-use-deprecated-library-functions) | Do not use Deprecated Library Functions |
 
 
 ## Contribution
