@@ -108,7 +108,7 @@ get replaced by the values assigned to the them.
 ### Description
 
 Access roles marked as `constant` results in computing the `keccak256` operation
-each time the variable is used because assigned opeartions for `constant`
+each time the variable is used because assigned operations for `constant`
 variables are re-evaluated every time.
 
 Changing the variables to `immutable` results in computing the hash only once
@@ -231,7 +231,7 @@ to memory.
 
 ⚡️ Community sentiment suggests to not accept this optimization due to security risks ⚡️
 
-Functions marked as `paybale` are slightly cheaper than non-`payable` ones,
+Functions marked as `payable` are slightly cheaper than non-`payable` ones,
 because the Solidity compiler inserts a check into non-`payable` functions
 requiring `msg.value` to be zero.
 
