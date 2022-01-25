@@ -30,7 +30,7 @@ their workload.
 | [G005](./0-Gas-Optimizations.md/#g005---make-variable-constantimmutable) | Make Variable `constant`/`immutable` |
 | [G006](./0-Gas-Optimizations.md/#g006---use-immutable-for-openzeppelin-accesscontrols-roles-declarations) | Use `immutable` for OpenZeppelin `AccessControl`'s Roles Declarations |
 | [G007](./0-Gas-Optimizations.md/#g007---long-revert-strings) | Long Revert Strings |
-| [G008](./0-Gas-Optimizations.md/#g008---shift-right-instead-of-dividing-by-2) | Shift Right instead of Dividing by 2 |
+| [G008](./0-Gas-Optimizations.md/#g008---use-shift-rightleft-instead-of-divisionmultiplication-if-possible) | Use Shift Right/Left instead of Division/Multiplication if possible |
 | [G009](./0-Gas-Optimizations.md/#g009---make-function-external-instead-of-public) | Make Function `external` instead of `public` |
 | [G010](./0-Gas-Optimizations.md/#g010---make-function-payable) | Make Function `payable` |
 
