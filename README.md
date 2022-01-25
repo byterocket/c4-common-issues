@@ -35,7 +35,7 @@ their workload.
 | [G010](./0-Gas-Optimizations.md/#g010---make-function-payable) | Make Function `payable` |
 
 
-## Non-Critial Issues
+## Non-Critical Issues
 
 | Identifier | Title |
 |------------|-------|
