@@ -33,7 +33,7 @@ their workload.
 | [G008](./0-Gas-Optimizations.md/#g008---use-shift-rightleft-instead-of-divisionmultiplication-if-possible) | Use Shift Right/Left instead of Division/Multiplication if possible |
 | [G009](./0-Gas-Optimizations.md/#g009---make-function-external-instead-of-public) | Make Function `external` instead of `public` |
 | [G010](./0-Gas-Optimizations.md/#g010---make-function-payable) | Make Function `payable` |
-| [G011](./0-Gas-Optimizations.md/#g010---unnecessary-checked-arithmetic-in-for-loop) | Unnecessary checked arithmetic in for loop |
+| [G011](./0-Gas-Optimizations.md/#g011---unnecessary-checked-arithmetic-in-for-loop) | Unnecessary checked arithmetic in for loop |
 
 
 ## Non-Critical Issues
