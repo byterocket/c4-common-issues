@@ -241,3 +241,36 @@ security considerations involving Ether held in contracts.
 ### Background Information
 
 - [Solidity Compiler Discussion](https://github.com/ethereum/solidity/issues/12539)
+
+
+## G011 - Unnecessary checked arithmetic in for loop
+
+### Description
+
+A lot of times there is no risk that the loop counter can overflow.
+
+Using Solidity's `unchecked` block saves the overflow checks.
+
+### Example
+
+🤦 Bad:
+```solidity
+uint len = supportedTokens.length;
+for (uint i; i < len; i++) {
+    // ...
+}
+```
+
+🚀 Good:
+```solidity
+uint len = supportedTokens.length;
+for (uint i; i < len; ) {
+    // ...
+
+    unchecked { i++; }
+}
+```
+
+### Background Information
+
+- [C4 Issue](https://github.com/code-423n4/2021-12-perennial-findings/issues/34)
