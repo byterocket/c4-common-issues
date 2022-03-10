@@ -107,6 +107,8 @@ get replaced by the values assigned to the them.
 
 ### Description
 
+⚡️ Only valid for solidity versions `<0.6.12` ⚡️
+
 Access roles marked as `constant` results in computing the `keccak256` operation
 each time the variable is used because assigned operations for `constant`
 variables are re-evaluated every time.
