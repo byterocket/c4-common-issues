@@ -34,6 +34,7 @@ their workload.
 | [G009](./0-Gas-Optimizations.md/#g009---make-function-external-instead-of-public) | Make Function `external` instead of `public` |
 | [G010](./0-Gas-Optimizations.md/#g010---make-function-payable) | Make Function `payable` |
 | [G011](./0-Gas-Optimizations.md/#g011---unnecessary-checked-arithmetic-in-for-loop) | Unnecessary checked arithmetic in for loop |
+| [G012](./0-Gas-Optimizations.md/#g011---use-prefix-increment-instead-of-postfix-increment-if-possible) | Use Prefix Increment instead of Postfix Increment if possible |
 
 
 ## Non-Critical Issues

@@ -276,3 +276,50 @@ for (uint i; i < len; ) {
 ### Background Information
 
 - [C4 Issue](https://github.com/code-423n4/2021-12-perennial-findings/issues/34)
+
+
+## G012 - Use Prefix Increment instead of Postfix Increment if possible
+
+### Description
+
+The difference between the prefix increment and postfix increment expression
+lies in the return value of the expression.
+
+The prefix increment expression (`++i`) returns the _updated_ value after it's
+incremented. The postfix increment expression (`i++`) returns the _original_
+value.
+
+The prefix increment expression is cheaper in terms of gas.
+
+Consider using the prefix increment expression whenever the return value is
+not needed.
+
+_Note_ to be careful using this optimization whenever the expression's return
+value is used afterwards, e.g. `uint a = i++` and `uint a = ++i` result in
+different values for `a`.
+
+### Example
+
+🤦 Bad:
+```solidity
+for (uint i; i < len; i++) {
+    if (i % 2 == 0) {
+        counter++;
+    }
+    // ...
+}
+```
+
+🚀 Good:
+```solidity
+for (uint i; i < len; ++i) {
+    if (i % 2 == 0) {
+        ++counter;
+    }
+    // ...
+}
+```
+
+### Background information
+
+- [Miguel's "Gas Optimizations for the Rest of Us" article](https://m1guelpf.blog/d0gBiaUn48Odg8G2rhs3xLIjaL8MfrWReFkjg8TmDoM)
