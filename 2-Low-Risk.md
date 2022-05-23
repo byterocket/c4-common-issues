@@ -184,3 +184,42 @@ use SafeERC20 for IERC20;
 
 IERC20(token).safeIncreaseAllowance(spender, value);
 ```
+
+
+## L006 - Check that Contract Exists before using `solmate`'s `SafeTransferLib`
+
+### Description
+
+Functions in `solmate`'s `SafeTransferLib` library do not check whether a token
+has code at all. This responsibility is is delegated to the caller.
+
+As a call to an address with no code will be a no-op, since low-level calls to
+non-contracts always return true, a transfer of tokens using `solmate`'s
+`SafeTransferLib` will succeed if the token does not have any code.
+
+Therefore, it is recommended to verify that a contract exists before using any
+`SafeTransferLib` functions.
+
+### Example
+
+🤦 Bad:
+```solidity
+// Note that this function is for demonstration purposes only and should not be used as is.
+function _fetchTokens(address token, address from, uint amount) internal {
+    ERC20(token).safeTransferFrom(from, amount);
+}
+```
+
+🚀 Good:
+```solidity
+// Note that this function is for demonstration purposes only and should not be used as is.
+function _fetchTokens(address token, address from, uint amount) internal {
+    require(token.code.length != 0, "Token does not exist");
+    ERC20(token).safeTransferFrom(from, amount);
+}
+```
+
+### Background Information
+
+- [Comment in `solmate`'s `SafeTransferLib`](https://github.com/Rari-Capital/solmate/blob/main/src/utils/SafeTransferLib.sol#L9)
+- [First Issue in QA Report for backed-protocol](https://github.com/code-423n4/2022-04-backed-findings/issues/134)
