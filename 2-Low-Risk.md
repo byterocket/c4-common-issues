@@ -191,7 +191,7 @@ IERC20(token).safeIncreaseAllowance(spender, value);
 ### Description
 
 Functions in `solmate`'s `SafeTransferLib` library do not check whether a token
-has code at all. This responsibility is is delegated to the caller.
+has code at all. This responsibility is delegated to the caller.
 
 As a call to an address with no code will be a no-op, since low-level calls to
 non-contracts always return true, a transfer of tokens using `solmate`'s

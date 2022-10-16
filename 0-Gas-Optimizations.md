@@ -6,7 +6,7 @@
 
 Uninitialized variables are assigned with the types default value.
 
-Explicitly initializing a variable with it's default value costs unnecesary gas.
+Explicitly initializing a variable with it's default value costs unnecessary gas.
 
 ### Example
 
@@ -61,7 +61,7 @@ for (uint256 i = 0; i < len; i++) {
 ### Description
 
 When dealing with unsigned integer types, comparisons with `!= 0` are cheaper
-then with `> 0`.
+than with `> 0`.
 
 ### Example
 
@@ -95,7 +95,7 @@ variables saved in storage.
 ### Description
 
 Making variables constant/immutable, if possible, saves gas as all variables
-get replaced by the values assigned to the them.
+get replaced by the values assigned to them.
 
 ### Background Information
 
