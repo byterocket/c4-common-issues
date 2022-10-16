@@ -13,7 +13,7 @@ as they increase the judge's workload.
 
 This repo aims to identify common issues and provide background information.
 
-The goal is, that wardens include the issue's identifier in a contest submittion.
+The goal is, that wardens include the issue's identifier in a contest submission.
 
 This would help judges mark the issues as duplicates and hopefully decrease
 their workload.
